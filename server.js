@@ -8,6 +8,12 @@ const loginHandler = function (request, reply) {
     reply.view('login.html', {});
 };
 
+const chatHandler = function (request, reply) {
+  currentUser = request.payload.name
+
+  reply.view('chat.html', {currentUser: currentUser});
+}
+
 server.register(require('vision'), (err) => {
 
     if (err) {
@@ -20,6 +26,8 @@ server.register(require('vision'), (err) => {
     });
 
     server.route({ method: 'GET', path: '/', handler: loginHandler });
+
+    server.route({ method: 'POST', path: '/chat', handler: chatHandler });
 });
 
 // server.register(require('inert'), (err) => {
