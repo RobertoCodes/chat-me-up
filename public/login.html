@@ -1,7 +1,13 @@
+<html>
+<body>
 <script id="menu-template" type="text/x-handlebars-template">
-  <h1>{{message}}</h1>
 </script>
-<form method="POST" action="/login">
-  <input type='text' name="name" value="name" placeholder='Please enter your name'/>
+<h1>{{{error}}}</h1>
+<form method="POST" action="/chat">
+  <h3>Please enter your name to start chatting!</h3><br></br>
+    <input type='text' name="name" value=""/>
+  </label>
   <button>Ok</button>
 </form>
+</body>
+</html>
