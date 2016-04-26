@@ -3,12 +3,9 @@ var Hapi = require('hapi');
 var server = new Hapi.Server();
 server.connection({port: 3000});
 
-const handler = function (request, reply) {
+const loginHandler = function (request, reply) {
 
-    reply.view('login.html', {
-        title: 'examples/views/handlebars/basic.js | Hapi ' + request.server.version,
-        message: 'Hello World!'
-    });
+    reply.view('login.html', {});
 };
 
 server.register(require('vision'), (err) => {
@@ -22,7 +19,7 @@ server.register(require('vision'), (err) => {
         path: __dirname + '/public'
     });
 
-    server.route({ method: 'GET', path: '/', handler: handler });
+    server.route({ method: 'GET', path: '/', handler: loginHandler });
 });
 
 // server.register(require('inert'), (err) => {
